@@ -14,7 +14,7 @@
 
 ## 📖 About the Project
 
-The **TensPilot+ Hardware Device** is the physical component of the broader TensPilot+ ecosystem. It is a standalone, box-enclosed TENS unit designed to deliver targeted electrical impulses to nerve endings, helping to alleviate pain and support physical rehabilitation.
+The **TensPilot+ Hardware Device** is the physical component of the broader TensPilot+ ecosystem. It is a standalone, custom-built TENS unit designed to deliver targeted electrical impulses to nerve endings, helping to alleviate pain and support physical rehabilitation.
 
 While the patient and provider software applications handle the tracking, analytics, and communication, this hardware device is solely responsible for generating and delivering the therapeutic electrical pulses safely.
 
@@ -23,22 +23,23 @@ While the patient and provider software applications handle the tracking, analyt
 ## ✨ Features & Capabilities
 
 - **Microcontroller:** Powered by an Arduino Uno for reliable pulse generation and timing.
+- **Amplification System:** Utilizes a 5V lithium-ion battery setup feeding into a boost converter and an L298N driver to deliver safe, therapeutic voltages.
 - **4 Distinct Therapy Modes:** Programmed to deliver different wave patterns and frequencies (e.g., continuous, burst, modulated) tailored for various types of pain relief.
+- **Physical UI & LCD:** Features an LCD screen for real-time stats, 3 potentiometers (Frequency, Intensity, Pulse Width), and mode indicator LEDs.
+- **Hardware Safety:** Includes an Emergency Stop switch that instantly kills power to the driver module.
 - **Standalone Operation:** Does not require Bluetooth or WiFi connectivity to function, ensuring 100% reliability during therapy sessions.
-- **Safe Enclosure:** Housed in a custom-designed box unit for patient safety and portability.
-- **Adjustable Intensity:** Allows the patient to manually dial in the exact stimulation strength required.
 
 ---
 
 ## 🏗️ How It Works (At a Glance)
 
-1. The Arduino Uno runs a C++ program that generates precise square-wave PWM (Pulse Width Modulation) signals.
-2. These signals are passed through a boosting circuit (transformer/transistor setup) to step up the voltage to a safe, therapeutic level.
-3. The patient selects one of the 4 therapy modes via physical interface buttons.
-4. The patient attaches the electrode pads to their skin, and the device delivers the electrical impulses.
-5. After the session, the patient logs their usage and pain relief levels manually into the **TensPilot+ Patient App**.
+1. **Power Routing:** Flat lithium batteries output 5V. This 5V powers the Arduino and also feeds a boost converter.
+2. **Amplification:** The boost converter steps up the voltage and sends it to an L298N motor driver.
+3. **Pulse Generation:** The Arduino generates precise square-wave PWM signals based on the user's potentiometer settings (frequency, pulse width, intensity).
+4. **Delivery:** The Arduino switches the L298N driver to deliver the amplified pulses to the patient's electrode pads.
+5. **Tracking:** After the session, the patient logs their usage and pain relief levels manually into the **TensPilot+ Patient App**.
 
-*For a detailed breakdown of the circuit design and pulse generation logic, see [ARCHITECTURE.md](./ARCHITECTURE.md).*
+*For a detailed breakdown of the circuit design and components, see [ARCHITECTURE.md](./ARCHITECTURE.md).*
 
 ---
 
