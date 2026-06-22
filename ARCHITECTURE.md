@@ -47,6 +47,21 @@ The Arduino firmware dictates the shape, frequency, and duration of the electric
 3. **Modulated Mode:** Automatically varies the pulse width and frequency continuously. This prevents the nervous system from accommodating to the signal.
 4. **Mixed / Massage Mode:** A custom pattern alternating between high and low frequencies to simulate a tapping or massaging sensation.
 
+## 🧬 Physiological & Biological Design
+
+Designing a medical device requires bridging electronics with human physiology. A critical engineering requirement for the TensPilot+ hardware was the safe morphology of the electrical pulses.
+
+### The Danger of Monophasic Pulses
+A monophasic electrical pulse flows in only one direction. If applied to human tissue, this unidirectional current causes a net accumulation of electrical charge under the electrode pads. Biologically, this leads to **galvanic effects**—the electrolysis of water and salt in the skin tissue, which alters the local pH and can rapidly cause severe chemical burns, skin irritation, and tissue damage.
+
+### Biphasic Pulse Generation
+To ensure absolute patient safety, the TensPilot+ firmware and L298N switching logic are designed to generate **biphasic pulses**. 
+- A biphasic pulse alternates the direction of the current flow (first positive, then negative).
+- This results in a **zero net DC charge transfer** into the tissue. 
+- By constantly reversing the polarity, the device prevents any harmful ion buildup under the skin. This completely mitigates chemical burns while still successfully depolarizing the sensory nerve fibers to block pain signals (via the *Gate Control Theory of Pain*) and stimulate endorphin release.
+
+*Note: For a deep dive into the physiological mechanisms, nerve depolarization, and clinical methodology, please refer to the full **Project Review** document.*
+
 ## 🛡️ Safety Considerations
 
 - **Emergency Stop:** A dedicated physical switch instantly disables the L298N driver, physically stopping all electrical output to the pads immediately.
