@@ -42,10 +42,10 @@ The TensPilot+ hardware is a standalone Transcutaneous Electrical Nerve Stimulat
 
 The Arduino firmware dictates the shape, frequency, and duration of the electrical pulses. The device features 4 distinct modes, cycled via the mode pushbutton:
 
-1. **Continuous Mode:** Delivers a steady, uninterrupted train of pulses. Best for acute pain.
-2. **Burst Mode:** Delivers short bursts of high-frequency pulses at a low background rate. Designed to stimulate endorphin release for chronic pain.
-3. **Modulated Mode:** Automatically varies the pulse width and frequency continuously. This prevents the nervous system from accommodating to the signal.
-4. **Mixed / Massage Mode:** A custom pattern alternating between high and low frequencies to simulate a tapping or massaging sensation.
+1. **General Mode:** Delivers a steady, uninterrupted train of pulses tailored for standard acute pain relief.
+2. **Neuropathy Mode:** Specifically calibrated low-frequency pulses designed to recruit motor afferents and stimulate endorphin release for nerve-related pain.
+3. **Period Mode:** Optimized frequency and pulse-width parameters to specifically alleviate menstrual cramps and pelvic pain.
+4. **Muscle Mode:** Alternating patterns designed to simulate a massaging sensation and promote muscle recovery and relaxation.
 
 ## 🧬 Physiological & Biological Design
 
